@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,26 +16,24 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { href: "#hotels", label: "Hotels" },
-    { href: "#cafes", label: "Cafés" },
+    { href: "#hotels", label: "Locations" },
+    { href: "#cafes", label: "Cafes" },
+    { href: "#testimonials", label: "Reviews" },
     { href: "#about", label: "About" },
-    { href: "#contact", label: "Contact" },
   ];
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
           ? "bg-background/95 backdrop-blur-md shadow-soft py-3"
           : "bg-transparent py-6"
-      }`}
+        }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
-          <span className={`font-display text-2xl font-bold transition-colors duration-300 ${
-            isScrolled ? "text-foreground" : "text-cream"
-          }`}>
-            Maison<span className="text-gradient-gold">Élite</span>
+        <a href="/" className="flex items-center gap-2">
+          <span className={`font-display text-2xl font-bold transition-colors duration-300 ${isScrolled ? "text-foreground" : "text-cream"
+            }`}>
+            Elite<span className="text-gradient-gold"> Cafes & Hotels</span>
           </span>
         </a>
 
@@ -44,16 +43,17 @@ const Navigation = () => {
             <a
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-all duration-300 hover:opacity-70 ${
-                isScrolled ? "text-foreground" : "text-cream"
-              }`}
+              className={`text-sm font-medium transition-all duration-300 hover:opacity-70 ${isScrolled ? "text-foreground" : "text-cream"
+                }`}
             >
               {link.label}
             </a>
           ))}
-          <Button variant={isScrolled ? "warm" : "hero"} size="lg">
-            Book Now
-          </Button>
+          <Link to="/booking">
+            <Button variant={isScrolled ? "warm" : "hero"} size="lg">
+              Book Now
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -83,9 +83,11 @@ const Navigation = () => {
                 {link.label}
               </a>
             ))}
-            <Button variant="warm" size="lg" className="mt-2">
-              Book Now
-            </Button>
+            <Link to="/booking">
+              <Button variant="warm" size="lg" className="w-full mt-2">
+                Book Now
+              </Button>
+            </Link>
           </div>
         </div>
       )}

@@ -5,21 +5,21 @@ const Footer = () => {
 
   const footerLinks = {
     explore: [
-      { label: "Hotels", href: "#hotels" },
-      { label: "Cafés", href: "#cafes" },
+      { label: "Locations", href: "#hotels" },
+      { label: "Rooms & Cafes", href: "#cafes" },
       { label: "About Us", href: "#about" },
-      { label: "Locations", href: "#" },
-    ],
-    services: [
-      { label: "Room Service", href: "#" },
-      { label: "Spa & Wellness", href: "#" },
-      { label: "Private Dining", href: "#" },
       { label: "Events", href: "#" },
     ],
+    services: [
+      { label: "Free WiFi", href: "#" },
+      { label: "Common Areas", href: "#" },
+      { label: "Kitchen Access", href: "#" },
+      { label: "Tours & Activities", href: "#" },
+    ],
     support: [
-      { label: "Contact Us", href: "#contact" },
       { label: "FAQs", href: "#" },
-      { label: "Reservations", href: "#" },
+      { label: "Book Now", href: "/booking" },
+      { label: "Group Bookings", href: "#" },
       { label: "Gift Cards", href: "#" },
     ],
   };
@@ -38,11 +38,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <span className="font-display text-2xl font-bold text-background">
-              Maison<span className="text-gold">Élite</span>
+              Elite<span className="text-gold"> Cafes & Hotels</span>
             </span>
             <p className="text-muted mt-4 max-w-sm">
-              Experience the pinnacle of luxury hospitality. Where every stay 
-              becomes a story and every meal a celebration.
+              Your gateway to adventure and friendship. Join our global community
+              of travelers and experience the world like never before.
             </p>
             <div className="flex gap-4 mt-6">
               {socialLinks.map((social, index) => (
@@ -54,6 +54,14 @@ const Footer = () => {
                   <social.icon className="w-5 h-5" />
                 </a>
               ))}
+            </div>
+
+            {/* Developer Credit */}
+            <div className="mt-6 pt-6 border-t border-muted/20">
+              <p className="text-muted text-sm">
+                Developed with ❤️ by{" "}
+                <span className="text-gold font-semibold">Aditya Kashid</span>
+              </p>
             </div>
           </div>
 
@@ -75,7 +83,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-background mb-4">Services</h4>
+            <h4 className="font-semibold text-background mb-4">Amenities</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link, index) => (
                 <li key={index}>
@@ -110,7 +118,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-muted/20 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted text-sm">
-            © {currentYear} Maison Élite. All rights reserved.
+            © {currentYear} Elite Cafes & Hotels. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-muted hover:text-gold text-sm transition-colors">
